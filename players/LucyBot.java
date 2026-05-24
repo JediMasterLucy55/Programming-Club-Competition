@@ -1,7 +1,10 @@
+package players;
+
+import gamefiles.botInterface;
 import gamefiles.readOnlyGameState;
 
 public class LucyBot implements gamefiles.botInterface {
-    int currentTokens;
+    int currentTokens = readOnlyGameState.getMyTokens();
     int bettedTokens;
 
     @Override
