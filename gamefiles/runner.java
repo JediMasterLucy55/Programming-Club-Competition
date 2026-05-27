@@ -6,8 +6,8 @@ import players.*;
 public class runner {
     
     public static void main(String[] args) {
-        botInterface player1 = new copycatplusone();
-        botInterface player2 = new copycatplusone();
+        botInterface player1 = new LucyBot();
+        botInterface player2 = new chatgpt();
         System.out.print(compete(player1, player2));
     }
 
