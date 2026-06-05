@@ -11,13 +11,10 @@ public class LucyBot implements gamefiles.botInterface {
 
         if (opponentTokens <= currentTokens) {
             tokensToBetThisRound = currentTokens;
-            boolean correct = betValid(tokensToBetThisRound);
-            if (!correct) {
-                tokensToBetThisRound = 5;
-            }
-        } else if (opponentTokens > currentTokens) {
-            if (g.getOpponentPreviousBet() > 5 && g.getOpponentPreviousBet() < currentTokens) {
-                tokensToBetThisRound = g.getOpponentPreviousBet() + 5;
+        } else {
+            tokensToBetThisRound = currentTokens / 2;
+            if (!betValid(tokensToBetThisRound) && !newValueBad(currentTokens, tokensToBetThisRound)) {
+                tokensToBetThisRound = betterify(currentTokens);
             }
         }
 
@@ -29,5 +26,19 @@ public class LucyBot implements gamefiles.botInterface {
             return false;
         }
         return true;
+    }
+
+    private boolean newValueBad(int x, int y) {
+        if (x - y < 5) {
+            return true;
+        }
+        return false;
+    }
+
+    private int betterify(int c) {
+        if (!betValid(c - 5)) {
+            
+        }
+        return 5;
     }
 }
