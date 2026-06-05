@@ -7,7 +7,7 @@ public class runner {
     
     public static void main(String[] args) {
         botInterface player1 = new LucyBot();
-        botInterface player2 = new chatgpt();
+        botInterface player2 = new slowburn();
         System.out.print(compete(player1, player2));
     }
 
